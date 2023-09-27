@@ -5,7 +5,7 @@ import { getordercontroller, mastercardsessionid } from "../controller/stripecon
 
 const router=express.Router();
 router.route("/mastercard/session").post(mastercardsessionid);
-router.route("/mastercard/order").get(getordercontroller)
+router.route("/mastercard/order").post(getordercontroller)
 
 
 
