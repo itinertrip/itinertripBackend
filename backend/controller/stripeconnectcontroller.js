@@ -34,7 +34,7 @@ export const mastercardsessionid=catchasyncerror(async(req,res,next)=>{
       };
     
     
-    const paymentData=await axios.post(`https://nbm.gateway.mastercard.com/api/rest/version/61/merchant/${merchantId}/session`,{
+    const paymentData=await axios.post(`https://nbm.gateway.mastercard.com/api/nvp/version/61/merchant/${merchantId}/session`,{
         
             apiOperation:"CREATE_CHECKOUT_SESSION",
             interaction:{
@@ -101,7 +101,7 @@ export const getordercontroller=catchasyncerror(async(req,res,next)=>{
         "Content-Type": "application/json",
       };
 
-      const orderdata=await axios.get(`https://nbm.gateway.mastercard.com/api/rest/version/61/merchant/${merchantId}/order/${orderid}`,{
+      const orderdata=await axios.get(`https://nbm.gateway.mastercard.com/api/nvp/version/61/merchant/${merchantId}/order/${orderid}`,{
         headers:authHeader
       });
 
