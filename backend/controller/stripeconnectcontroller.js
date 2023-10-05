@@ -34,9 +34,9 @@ export const mastercardsessionid=catchasyncerror(async(req,res,next)=>{
       };
     
     
-    const paymentData=await axios.post("https://test-nbm.mtf.gateway.mastercard.com/api/rest/version/74/merchant/IBTSTEST01/session",{
+    const paymentData=await axios.post(`https://nbm.gateway.mastercard.com/api/rest/version/61/merchant/${merchantId}/session`,{
         
-            apiOperation:"INITIATE_CHECKOUT",
+            apiOperation:"CREATE_CHECKOUT_SESSION",
             interaction:{
                 operation:"PURCHASE",
                 returnUrl:returnurl+orderid,
@@ -101,7 +101,7 @@ export const getordercontroller=catchasyncerror(async(req,res,next)=>{
         "Content-Type": "application/json",
       };
 
-      const orderdata=await axios.get(`https://test-nbm.mtf.gateway.mastercard.com/api/rest/version/74/merchant/IBTSTEST01/order/${orderid}`,{
+      const orderdata=await axios.get(`https://nbm.gateway.mastercard.com/api/rest/version/61/merchant/${merchantId}/order/${orderid}`,{
         headers:authHeader
       });
 
